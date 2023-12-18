@@ -36,7 +36,7 @@ class CardsController extends Controller
                 $sortedCards = $cards;
             }
 
-            return response()->json(['data' => $sortedCards]);
+            return response()->json($sortedCards);
 
         } catch (RequestException $e) {
             return response()->json(['error' => $e->getMessage()], 500);
