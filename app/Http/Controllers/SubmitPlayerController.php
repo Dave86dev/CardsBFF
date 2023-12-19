@@ -30,7 +30,7 @@ class SubmitPlayerController extends Controller
 
             return response()->json([
                 'success' => true,
-                'message' => 'new player '.$newPlayer['realName'].' submitted',
+                'message' => 'New player '.$newPlayer['realName'].' submitted',
                 'data' => [$newPlayer],
             ]);
 
