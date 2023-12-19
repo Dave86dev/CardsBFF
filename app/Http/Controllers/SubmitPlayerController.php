@@ -27,7 +27,7 @@ class SubmitPlayerController extends Controller
             }
 
             //It exists, hence we answer :)
-            return response()->json(['new player submitted' => $newPlayer]);
+            return response()->json('new player '.$newPlayer['realName'].' submitted');
 
         } catch (RequestException $e) {
 
