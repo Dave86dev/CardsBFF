@@ -16,14 +16,16 @@ class CardsController extends Controller
             //We obtain the sort criteria
             $sort = $request->query('sort', 'default');
 
-            //Fetch from API
             $apiData = Http::get('https://opensource.aoe.com/the-card-game-data/player.json');
             $apiData->throw(); 
             $cards = $apiData->json();
 
-            //We check the API data is not empty
+            //We fetch & check the API data is not empty, otherwise we send an error
             if (empty($cards)) {
-                return response()->json(['error' => 'No data from API'], 500);
+                return response()->json([
+                    'success' => false,
+                    'error' => 'No data from API'
+                ], 500);
             }
 
             //Process and order the array of objects
@@ -36,6 +38,7 @@ class CardsController extends Controller
                 $sortedCards = $cards;
             }
 
+            //$sortedCards contains the array ordered with our desired criteria
             return response()->json([
                 'success' => true,
                 'message' => 'Data successfully fetched.',
@@ -43,7 +46,10 @@ class CardsController extends Controller
             ]);
 
         } catch (RequestException $e) {
-            return response()->json(['error' => $e->getMessage()], 500);
+            return response()->json([
+                'success' => false,
+                'error' => $e->getMessage()
+            ], 500);
         }
     }
 }

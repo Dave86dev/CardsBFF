@@ -23,10 +23,13 @@ class SubmitPlayerController extends Controller
             $exists = $this->playerExists($newPlayer, $apiData);
 
             if (!$exists) {
-                return response()->json(['error' => 'The player you submitted do not exist'], 400);
+                return response()->json([
+                    'success' => false,
+                    'error' => 'The player you submitted do not exist'
+                ], 400);
             }
 
-            //It exists, hence we answer :)
+            //It exists, we reach this point hence we answer :)
 
             return response()->json([
                 'success' => true,
@@ -36,11 +39,17 @@ class SubmitPlayerController extends Controller
 
         } catch (RequestException $e) {
 
-            return response()->json(['error' => $e->getMessage()], 500);
+            return response()->json([
+                'success' => false,
+                'error' => $e->getMessage()
+            ], 500);
 
         } catch (\Exception $e) {
 
-            return response()->json(['error' => $e->getMessage()], 500);
+            return response()->json([
+                'success' => false,
+                'error' => $e->getMessage()
+            ], 500);
 
         }
     }
@@ -48,6 +57,8 @@ class SubmitPlayerController extends Controller
     private function playerExists($newPlayer, $apiData)
     {
 
+        /*We assure by comparing all the player ($newPlayer) data fields that the player
+        exists in the array of objects */
         $matchingPlayer = collect($apiData)->first(function ($player) use ($newPlayer) {
             return $player['realName'] == $newPlayer['realName'] &&
                    $player['playerName'] == $newPlayer['playerName'] &&
