@@ -1,66 +1,80 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## The Cards Game AOE - Full Stack Developer
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<details>
+  <summary>Index 📝</summary>
+  <ol>
+    <li><a href="#goals">Goals</a></li>
+    <li><a href="#about-the-project">About the project</a></li>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#local-installation">Local installation</a></li>
+    <li><a href="#endpoints">Endpoints</a></li>
+    <li><a href="#dev">Dev</a></li>
+    <li><a href="#special-thanks">Special thanks</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-## About Laravel
+## Goals
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The main objective of the current application is to create a Backend for Frontend (BFF) application that is capable of supplying information to a Single Page Application (SPA) frontend. In this case it will process data from an external API. (https://opensource.aoe.com/the-card-game-data/player.json)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## About the project
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+Some of the key points in the development of this application have been, on the one hand, securing incoming information at the "/submit" endpoint by checking that the input data is not empty and, at the same time, contains a player that exists in the information provided by the API.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+The second point has occurred at the "/cards" endpoint where we have verified that if the information in the "sort" variable is empty, we also proceed to return the default ascending order in which the cards were originally presented.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Deploy 
+<div align="center">
+    <a href="https://cardsbff-production.up.railway.app/"><strong>BFF Production Url </strong></a>
+</div>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Stack
+<div align="center">
+<a href="https://www.php.net/">
+    <img src= "https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white"/>
+</a>
+<a href="https://laravel.com/">
+    <img src= "https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white"/>
+</a>
+ </div>
 
-## Laravel Sponsors
+## Local installation
+1. Clone repository
+2. ` $ npm install `
+3. `composer install`
+4. We install all the dependencies listed at composer.json
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Endpoints
+<details>
+<summary>Endpoints</summary>
 
-### Premium Partners
+- CARD INFORMATION PROCESS
+    - PLAYER SUBMIT
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+            POST http://localhost:8000/api/submit
+        body:
+        ``` js
+            {
+                "realName": "Esmeralda Carrillo",
+                "playerName": "Skulldart",
+                "asset": "Yellow Orichalcum Of Paladins"
+            }
+        ```
 
-## Contributing
+    - CARD SORT & DATA FETCH
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+            GET http://localhost:8000/api/cards
+        
+</details>
 
-## Code of Conduct
+## Dev:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Developed by David Ochando Blasco. 
 
-## Security Vulnerabilities
+## Contacto
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- ***David Ochando***  
+<a href = "mailto:davidochando1986@gmail.com"><img src="https://img.shields.io/badge/Gmail-C6362C?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+<a href="https://github.com/Dave86dev" target="_blank"><img src="https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=green" target="_blank"></a> 
