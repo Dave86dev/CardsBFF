@@ -9,7 +9,6 @@
     <li><a href="#local-installation">Local installation</a></li>
     <li><a href="#endpoints">Endpoints</a></li>
     <li><a href="#dev">Dev</a></li>
-    <li><a href="#special-thanks">Special thanks</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -73,7 +72,7 @@ The second point has occurred at the "/cards" endpoint where we have verified th
 
 Developed by David Ochando Blasco. 
 
-## Contacto
+## Contact
 
 - ***David Ochando***  
 <a href = "mailto:davidochando1986@gmail.com"><img src="https://img.shields.io/badge/Gmail-C6362C?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
