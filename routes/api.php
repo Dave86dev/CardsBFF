@@ -4,7 +4,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CardsController;
-use App\Http\Controllers\SubmitPlayerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +18,4 @@ use App\Http\Controllers\SubmitPlayerController;
 
 Route::middleware('api')->group(function () {
     Route::get('/cards', [CardsController::class, 'fetchCards']);
-    Route::post('/submit', [SubmitPlayerController::class, 'submitPlayer']);
 });
