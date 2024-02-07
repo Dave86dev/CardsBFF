@@ -38,7 +38,7 @@ class CardsController extends Controller
 
             shuffle($validatedCards);
             // First 10
-            $randomCards = array_slice($validatedCards, 0, min(14, count($validatedCards)));
+            $randomCards = array_slice($validatedCards, 0, min(16, count($validatedCards)));
 
             // Apply sorting based on the 'sort' query parameter
             if ($sort === 'asc') {
